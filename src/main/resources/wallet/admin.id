@@ -1,0 +1,8 @@
+{
+"type": "X.509",
+"mspId": "Org1MSP",
+"credentials": {
+"certificate": "-----BEGIN CERTIFICATE-----\nPLACEHOLDER_CERTIFICATE\n-----END CERTIFICATE-----",
+"privateKey": "-----BEGIN PRIVATE KEY-----\nPLACEHOLDER_PRIVATE_KEY\n-----END PRIVATE KEY-----"
+}
+}
