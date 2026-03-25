@@ -49,25 +49,18 @@ for (Block block : chain) {
 // Validate blockchain integrity
 public boolean isChainValid() {
 
-    Block currentBlock;
-    Block previousBlock;
-
     for (int i = 1; i < chain.size(); i++) {
 
-        currentBlock = chain.get(i);
-        previousBlock = chain.get(i - 1);
+        Block current = chain.get(i);
+        Block previous = chain.get(i - 1);
 
-        // Check if current hash is correct
-        if (!currentBlock.getHash().equals(currentBlock.calculateHash())) {
-
-            System.out.println("Current hash is invalid!");
+        // 🔴 Check hash integrity
+        if (!current.getHash().equals(current.calculateHash())) {
             return false;
         }
 
-        // Check if previous hash matches
-        if (!currentBlock.getPreviousHash().equals(previousBlock.getHash())) {
-
-            System.out.println("Previous hash mismatch!");
+        // 🔴 Check chain link
+        if (!current.getPreviousHash().equals(previous.getHash())) {
             return false;
         }
     }

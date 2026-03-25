@@ -18,12 +18,9 @@ public class Block {
         this.hash = calculateHash();
     }
 
-    public String calculateHash() {
-
-        String input = previousHash + timestamp + nonce + data;
-
-        return HashUtil.applySHA256(input);
-    }
+   public String calculateHash() {
+    return HashUtil.applySHA256(previousHash + data + nonce);
+}
 
     public void mineBlock(int difficulty) {
 
@@ -51,4 +48,5 @@ public class Block {
     public void setData(String data) {
     this.data = data;
 }
+
 }
